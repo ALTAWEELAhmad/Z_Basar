@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Engwerda_remark]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>site-lib/media/favicon.png</url><title>Engwerda_remark</title><link></link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Fri, 17 Oct 2025 05:56:48 GMT</lastBuildDate><atom:link href="site-lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Fri, 17 Oct 2025 05:56:34 GMT</pubDate><ttl>60</ttl><dc:creator></dc:creator><item><title><![CDATA[Chapter 5]]></title><description><![CDATA[General Formulation of Infinite Dynamic GamesThis chapter provides a general formulation and some background material for the class of infinite dynamic games to be studied in the remaining chapters of the book. In these games, the action sets of the players comprise an infinite number (in fact a continuum) of elements (alternatives), and the players gain some dynamic information throughout the decision process. Moreover, such games are defined either in discrete time, in which case there exists a finite (or at most a countable) number of levels of play, or in continuous time, which corresponds to a continuum of levels of play.Note This chapter introduces the main ideas and background for the type of infinite dynamic games discussed in the rest of the book. In these games, each player can choose from an infinite (actually continuous) set of possible actions, and they receive new information as the game progresses. These games can be defined in discrete time, where there are a finite or countable number of stages, or in continuous time, where play happens continuously without distinct stages.
+Quite analogous to finite dynamic games, infinite dynamic games can also be formulated in extensive form which, however, does not lead to a (finite) tree structure, firstly because the action sets of the players are not finite, and secondly because of existence of a continuum of levels of play if the game is defined in continuous time. Instead, the extensive form of an infinite dynamic game involves a difference (in discrete time) or a differential (in continuous time) equation which describes the evolution of the underlying decision process. In other words, possible paths of action are not determined by following the branches of a tree structure (as in the finite case) but by the solutions of these functional equations which we also call “state equations”. Furthermore, the information sets, in such an extensive formulation, are defined as subsets of some infinite sets on which some further structure is imposed (such as Borel subsets). A precise formulation which takes into account all these extensions as well as the possibility of chance moves is provided in Section 5.2 for discrete-time problems and in Section 5.3 for game problems defined in continuous time. In a discrete-time dynamic game, every player acts only at discrete instants of time, whereas in the continuous-time formulation the players act throughout a time interval which is either fixed a priori or determined by the rules ofNote
+Similar to finite dynamic games, infinite dynamic games can also be described in extensive form, but this form does not produce a finite tree structure. This is because (1) the players’ action sets are infinite, and (2) in continuous-time games, there is a continuous range of decision moments.
+Instead of a tree, the extensive form of an infinite dynamic game is represented by equations that describe how the decision process evolves — a difference equation in discrete time or a differential equation in continuous time. In other words, the possible action paths are not shown by branching trees (as in finite games) but are determined by the solutions of these equations, called state equations.
+In this framework, the information sets are defined as subsets of infinite sets with additional mathematical structure (for example, Borel subsets). A detailed formulation that includes these ideas and allows for random (chance) moves is given in Section 5.2 for discrete-time games and Section 5.3 for continuous-time games.
+In a discrete-time dynamic game, each player makes decisions only at specific time points, while in a continuous-time game, players act continuously over a time interval that is either fixed in advance or determined by the rules of the game. 215
+the game and the actions of the players. For finite games, the case in which the duration of the game is finite, but not fixed a priori, has already been included in the extensive tree formulation of Chapters 2 and 3. These chapters, in fact, included examples of multi-act games wherein the number of times a player acts is explicitly dependent on the actions of some other player(s)---and these examples have indicated that such decision problems do not require a separate treatment, and they can be handled by making use of the theory developed for multi-act games with an a priori fixed number of levels. In infinite dynamic games, however, an a priori fixed upper bound on the duration may sometimes be lacking, in which case “termination” of the play becomes a more delicate issue, as already shown in Section 2.7. Therefore, we devote a portion of Section 5.3 to a discussion on this topic, which will be useful later in Chapter 8.Even though we shall not be dealing, in this book, with mixed and behavioral strategies in infinite dynamic games, we devote Section 5.4 to a brief discussion on this topic, mainly to familiarize the reader with the difficulties encountered in extending these notions from the finite to the infinite case, and to point out the direction along which such an extension would be possible.Section 5.5 deals with certain standard techniques of one-person single-goal optimization and, more specifically, with optimal control problems. Our objec- tive in including such a section is twofold; first, to introduce the reader to our notation and terminology for the remaining portions of the book, and second, to summarize some of the tools for one-person optimization problems which will be heavily employed in subsequent chapters in the derivation of noncooperative equilibria of infinite dynamic games. Section 5.6 deals with the notion of “rep- resentations of strategies on trajectories”, and the issue of “time consistency”, both of which are of prime importance in infinite dynamic games, as it will become apparent in Chapters 6 and 7.Finally, Section 5.7 deals with so-called viscosity solutions. An important standard technique for continuous-time problems, as described in Section 5.5, is the solution of a partial differential equation. Among all possible solutions of this equation, the viscosity solution is a particular one; it is quite often unique and has a clear interpretation in terms of a generalized optimal control problem to which some stochastic perturbations have been added.5.2 Discrete-Time Infinite Dynamic GamesIn order to motivate the formulation of a discrete-time infinite dynamic game in extensive form, we now first introduce an alternative to the tree model of finite dynamic games—the so-called loop model. To this end, consider an NNN-person finite dynamic game with strategy sets and with decision (action) vectors , where the kkkth block component (uki)(u_k^i)(uki​) of uiu^iui designates PiP^iPi's action at the kkkth level (stage) of the game and no chance moves are allowed. Now, if such a finite dynamic game is defined in extensive form (cf. <a data-href="Def. 3.10" href="def.-3.10.html" class="internal-link" target="_self" rel="noopener nofollow">Def. 3.10</a>), then for any given NNN-tuple of strategies the actions of theGENERAL FORMULATION
+217players are completely determined by the relations
+where denotes the information set of PiP_iPi​. Moreover, since each is completely determined by the actions of the players, there exists a point-to-set mapping () such that () and when substituted into (5.1), yields the “loop” relation
+This clearly indicates that, for a given strategy NNN-tuple, the actions of the players are completely determined through the solution of a set of simultaneous equations which admits a unique solution under the extensive form (Kuhn, 1953). If the cost function of PiP_iPi​ is defined on the action spaces, as , then substitution of the solution of (5.2) into LiL^iLi yields as the cost incurred to PiP_iPi​ under the strategy NNN-tuple . If the cost function is instead defined on the strategy spaces, as , then we clearly have the relation (). Now, if a finite dynamic game is described through a set of equations of the form (5.2), with belonging to an appropriately specified class, together with an NNN-tuple of cost functions , then we call this a loop model for the dynamic game (Witsenhausen, 1971a, 1975b). The above discussion has already displayed the steps involved in going from a tree model to a loop model in finite deterministic dynamic games. Conversely, it is also possible to start with a loop model and derive a tree model out of that, provided that the functions () are restricted to a suitable class satisfying conditions like causality, unique solvability of the loop equation (5.2), etc. In other words, if the sets () are chosen properly, then the set of equations
+together with the cost structure leads to a tree structure that satisfies the requirements of Def. 3.10.If the finite dynamic game under consideration also incorporates a chance move, with possible alternatives for nature being , then the loop equation (5.3) will accordingly have to be replaced by
+where, by an abuse of notation, we again let be the class of all permissible mappings . The solution of (5.4) will now be a function of ; and when this is substituted into the cost function and expectation is taken over the statistics of , the resulting quantity determines the corresponding expected loss to PiP_iPi​.Here NiN^iNi denotes the set of all as in Def. 3.11. 218 T. BAŞAR AND G. J. OLSDER
+<br>Now, for infinite dynamic games defined in discrete time, the tree model of <a data-href="Def. 3.10" href="def.-3.10.html" class="internal-link" target="_self" rel="noopener nofollow">Def. 3.10</a> is not suitable since it cannot accommodate infinite action sets. However, the loop model defined by relations such as <a data-href="(5.3)" href="(5.3).html" class="internal-link" target="_self" rel="noopener nofollow">(5.3)</a> does not impose such a restriction on the action sets; in other words, in the loop model we can take each UiU^iUi, to which the action variable uiu^iui belongs, to be an infinite set. Hence, let us now start with a set of equations of the form <a data-href="(5.3)" href="(5.3).html" class="internal-link" target="_self" rel="noopener nofollow">(5.3)</a> with UiU^iUi () taken as infinite sets. Furthermore let us decompose uiu^iui into KKK blocks such that, considered as a column vector,where KKK is an integer denoting the maximum number of stages (levels) in the game and ukiu^i_kuki​ denotes the action (decision or control) variable of PiP_iPi​ corresponding to his move during the kkkth stage of the game.In accordance with this decomposition, let us decompose each in its range space, so that (5.3) can equivalently be written asUnder the causality assumption which requires ukiu^i_kuki​ to be a function of only the past actions of the players, (5.6) can equivalently be written as (by an abuse of notation)By following an analysis parallel to the one used in system theory in going from input-output relations for systems to state space models (Zadeh, 1969), we now assume that PkiP_k^iPki​ is structured in such a way that there exist sets , YkiY_k^iYki​, , with the latter two being finite dimensional, and functions , , and for each there exists a , such that (5.7) can equivalently be written aswhere is a subcollection ofandfor some .In other words, no player can make more than KKK moves in the game, regardless of the strategies picked. GENERAL FORMULATION 219
+Adopting the system theory terminology, we call xkx_kxk​ the state of the game, ykiy_k^iyki​ the (deterministic) observation of PiP_iPi​ and the information available to PiP_iPi​, all at stage kkk; and we shall take relations (5.8), (5.9a)-(5.9b) as the starting point in our formulation of discrete-time infinite dynamic games. More precisely, we define an NNN-person discrete-time infinite dynamic game of prespecified fixed duration as follows.An NNN-person discrete-time deterministic infinite dynamic game of prespecified fixed duration involves
+(i) An index set called the players' set.
+(ii) An index set denoting the stages of the game, where KKK is the maximum possible number of moves a player is allowed to make in the game.
+(iii) An infinite set XXX with some topological structure, called the state set (space) of the game, to which the state of the game (xkx_kxk​) belongs for all .
+(iv) An infinite set UkiU_k^iUki​ with some topological structure, defined for each and , which is called the action (control) set of PiP_iPi​ at stage kkk. Its elements are the permissible actions ukiu_k^iuki​ of PiP_iPi​ at stage kkk.
+(v) A function , defined for each , so that
+for some which is called the initial state of the game. This difference equation is called the state equation of the dynamic game, describing the evolution of the underlying decision process.
+(vi) A set YkiY_k^iYki​ with some topological structure, defined for each and , and called the observation set of PiP_iPi​ at stage kkk, to which the observation ykiy_k^iyki​ of PiP_iPi​ belongs at stage kkk.
+(vii) A function , defined for each and , so that
+which is the state-measurement (-observation) equation of PiP_iPi​ concerning the value of xkx_kxk​.
+(viii) A finite set , defined for each and as a subset of , which determines the information gained and recalled by PiP_iPi​ at stage kkk of the game. Specification of for all characterizes the information structure (pattern) of PiP_iPi​, and the collection (over ) of these information structures is the information structure of the game.Also known as an “NNN-person deterministic multi-stage game”.220
+~
+233GENERAL FORMULATION 233Since optimal control problems constitute a special class of infinite dynamic
+games with one player and one criterion, the mathematical tools available for
+such problems may certainly be useful in dynamic game theory. This holds par-
+ticularly true if the players adopt the noncooperative Nash equilibrium solution
+concept, in which case each player is faced with a single criterion optimization
+problem (i.e., optimal control problem) with the strategies of the remaining
+players taken to be fixed at their equilibrium values. Hence, in order to verify
+whether a given set of strategies is in Nash equilibrium, we inevitably have to
+utilize the tools of optimal control theory. We, therefore, present in this section
+some important results on dynamic one-person optimization problems so as to
+provide an introduction to the theory of subsequent chapters.
+The section comprises three subsections. The first two deal with the dynamic
+programming (DP) technique applied to discrete-time and continuous-time op-
+timal control problems, and the third is devoted to the “minimum principle”.
+For more details on, and a rigorous treatment of, the material presented in these
+subsections the reader is referred to Fleming and Rishel (1975), Fleming and
+Soner (1993) and Boltyanski (1978).The method of dynamic programming is based on the principle of optimality
+which states that an optimal strategy has the property that, whatever the initial
+state and time are, an all remaining decisions (from that particular initial state
+and particular initial time onwards) must also constitute an optimal strategy.
+To exploit this principle, we work backwards in time, starting at all possible
+final states with the corresponding final times. Such a technique has already
+been used in this book within the context of finite dynamic (multi-act) games,
+specifically in Sections 2.5 and 3.5, in the derivation of noncooperative equilibria,
+though we did not refer explicitly to dynamic programming. We now discuss
+the principle of optimality within the context of discrete-time systems that fit
+the framework of Def. 5.1, but with only one player (i.e., N=1N=1N=1). Toward that
+end, we consider equation (5.9b), assume feedback perfect state information, and
+a stage-additive cost functional of the form (5.10), all for N=1N = 1N=1, i.e.,(5.15a)(5.15b)
+where , uk=uk∗(xk)u_k = u_k^*(x_k)uk​=uk∗​(xk​), denotes a permissible (control)
+strategy at stage , and KKK is a fixed positive integer. In order to determine
+the minimizing control strategy, we shall need the expression for the minimum
+(or minimal) cost from any starting point at any initial time. This is also called234 T. BAŞAR AND G. J. OLSDER
+the value function, and is defined aswith and . A direct application of the principle of
+optimality now readily leads to the recursive relation(5.19)
+If the optimal control problem admits a solution , then the
+solution V(1,x1)V(1, x_1)V(1,x1​) of (5.19) should be equal to L(u∗)L(u^*)L(u∗), and furthermore each uk∗u_k^*uk∗​
+should be determined as an argument of the RHS of (5.19).Affine-quadratic problems
+As a specific application, let us consider the so-called affine-quadratic (or linear-
+quadratic) discrete-time optimal control problem, which is described by the state
+equationx{k+1}=Akxk+Bkuk+ck,x_{k+1} = A_k x_k + B_k u_k + c_k,x{k+1}​=Ak​xk​+Bk​uk​+ck​,(5.20a)
+and cost functional(5.20b)
+Let us further assume that , , , Rk&gt;0R_k &gt; 0Rk​&gt;0, for all , and Ak,BkA_k, B_kAk​,Bk​ are matrices of appropriate dimensions. Here, the
+corresponding expression for fkf_kfk​ is obvious, but the one for gkg_kgk​ is not uniquely
+defined; though, it is convenient to take it asWe now obtain, by inspection, that V(k,x)V(k, x)V(k,x) should be a general quadratic func-
+tion of xxx for all , and that . This
+leads to the structural form . Substituting this in
+the recursive relation (5.19) we obtain the unique solution of the optimal control
+problem (5.20a)-(5.20b) as follows.<br>The optimal control problem <a data-href="(5.20a)" href="(5.20a).html" class="internal-link" target="_self" rel="noopener nofollow">(5.20a)</a>-<a data-href="(5.20b)" href="(5.20b).html" class="internal-link" target="_self" rel="noopener nofollow">(5.20b)</a> admits the unique
+solution(5.21a)GENERAL FORMULATION 235
+for all , where(5.21b)<br>
+Furthermore, the minimum value of <a data-href="(5.20b)" href="(5.20b).html" class="internal-link" target="_self" rel="noopener nofollow">(5.20b)</a> is(5.22)
+whereIf the requirement is not satisfied, a necessary and suf-
+ficient condition for (5.21a)-(5.21b) to provide a unique solution to the affine-
+quadratic discrete-time optimal control problem isTo formulate a possibly meaningful linear-quadratic optimal control problem
+when , we take ck=0c_k = 0ck​=0, and the matrices Ak,Bk,QkA_k, B_k, Q_kAk​,Bk​,Qk​ and RkR_kRk​ to be
+independent of kkk (which will henceforth be written without the index kkk). Thus
+the optimization problem issubject toIt is natural to assume here that the problem is well defined, in the sense that
+there exists at least one control sequence that renders it a finite cost. Conditions
+which ensure this are stabilizability of the matrix pair (A,B)(A, B)(A,B), and detectability
+of the matrix pair (A,D)(A, D)(A,D), where DDD is a matrix such that DTD=QD^T D = QDTD=Q. These
+notions of stabilizability and detectability belong to the realm of the theory of
+linear systems; see for instance Kailath (1980) or Anderson and Moore (1989).
+The pair (A, B) is stabilizable if an mxnm x nmxn matrix FFF exists such that is a stable matrix, i.e., all its eigenvalues lie strictly within the unit circle. The pair (A,D) is detectable if its "dual pair", () is stabilizable. The following result is now a standard one, which can be found in any textbook on linear control systems.Using standard terminology, we will also refer to the latter condition as detectability of
+the pair (A,Q)(A, Q)(A,Q).236 T. BAŞAR AND G. J. OLSDERAssume that the pair (A,B)(A, B)(A,B) is stabilizable and the pair (A,Q)(A, Q)(A,Q)
+is detectable. Then, there exists an nonnegative-definite matrix SSS such
+that
+(i) for fixed kkk, as , where for each KKK, and arbitrary
+, Sk{(K)}S_k^{(K)}Sk{(K)}​ is recursively defined by (5.21a)-(5.21b);
+(ii) SSS is the unique solution of the algebraic Riccati equation (ARE)S=Q+ATS[I−BTSB]{−1}BTSAS = Q + A^T S[I - B^T S B]^{-1} B^T S AS=Q+ATS[I−BTSB]{−1}BTSAwithin the class of nonnegative-definite matrices;
+(iii) the (closed-loop) matrix A−B(R+BTSB){−1}BTSA - B(R + B^T S B)^{-1} B^T SA−B(R+BTSB){−1}BTS is stable, i.e., all its
+eigenvalues lie strictly within the unit circle;
+(iv) the minimum value of the cost functional is ;
+(v) the stationary optimal control law isThe dynamic programming approach, when applied to optimal control problems
+defined in continuous time, leads to a partial differential equation (PDE) which
+is known as the Hamilton-Jacobi-Bellman (HJB) equation. Toward this end
+we consider the optimal control problem defined by<br><a data-href="(5.23)" href="(5.23).html" class="internal-link" target="_self" rel="noopener nofollow">(5.23)</a>
+where xxx is a scalar function, defining an nnn-dimensional smooth manifold in the
+product space , and is taken to be the class of all admissible feedback
+strategies.
+The minimum cost-to-go from any initial state (x)(x)(x) and any initial time (t)(t)(t)
+is described by the so-called value function which is defined by(5.24a)
+satisfying the boundary condition<br><a data-href="(5.24b)" href="(5.24b).html" class="internal-link" target="_self" rel="noopener nofollow">(5.24b)</a>GENERAL FORMULATION 237<br>A direct application of the principle of optimality on <a data-href="(5.24a)" href="(5.24a).html" class="internal-link" target="_self" rel="noopener nofollow">(5.24a)</a>, under the
+assumption of continuous differentiability of VVV, leads to the HJB equation<br><a data-href="(5.25)" href="(5.25).html" class="internal-link" target="_self" rel="noopener nofollow">(5.25)</a>
+which takes (5.24b) as the boundary condition.In general, it is not easy to compute V(t,x)V(t, x)V(t,x). Moreover, the continuous differ-
+entiability assumption imposed on V(t,x)V(t, x)V(t,x) is rather restrictive (see, for instance,
+Example 5.2 in subsection 5.5.3, for which it does not hold). Nevertheless, if
+such a function exists, then the HJB equation (5.25) provides a means of ob-
+taining the optimal control strategy. This “sufficiency” result is now proven in
+the following theorem.If a continuously differentiable function V(t,x)V(t, x)V(t,x) can be found that<br>
+satisfies the HJB equation <a data-href="(5.25)" href="(5.25).html" class="internal-link" target="_self" rel="noopener nofollow">(5.25)</a> subject to the boundary condition <a data-href="(5.24b)" href="(5.24b).html" class="internal-link" target="_self" rel="noopener nofollow">(5.24b)</a>, then
+it generates the optimal strategy through the static (pointwise) minimization<br>
+problem defined by the RHS of <a data-href="(5.25)" href="(5.25).html" class="internal-link" target="_self" rel="noopener nofollow">(5.25)</a>.
+Proof. If we are given two strategies, (the optimal one) and (an arbitrary one), with the corresponding terminating trajectories x∗x^*x∗ and xxx,<br>
+and terminal times T∗T^*T∗ and TTT, respectively, then <a data-href="(5.25)" href="(5.25).html" class="internal-link" target="_self" rel="noopener nofollow">(5.25)</a> reads(5.26a)(5.26b)
+where and have been replaced by the corresponding controls u∗u^*u∗ and uuu,
+respectively. Integrating (5.26a) from 000 to TTT and (5.26b) from 000 to T∗T^*T∗, we
+obtain(5.27)(5.28)
+Elimination of V(0,x0)V(0, x_0)V(0,x0​) yields(5.29)
+from which it readily follows that u∗u^*u∗ is the optimal control, and therefore is
+the optimal strategy.238 T. BAŞAR AND G. J. OLSDER<br>If, in the problem statement <a data-href="(5.23)" href="(5.23).html" class="internal-link" target="_self" rel="noopener nofollow">(5.23)</a>, the time variable ttt does not
+appear explicitly, i.e., if f,g,qf, g, qf,g,q and lll are time-invariant, the corresponding
+value function will also be time-invariant. This then implies that ,
+and the resulting optimal strategy can be expressed as a function of only x(t)x(t)x(t),
+i.e., . In such cases, we will write V(x)V(x)V(x) for V(t,x)V(t, x)V(t,x).There exists an alternative derivation of the HJB equation (5.25),
+which is of a geometrical nature. This will not be discussed here, since it is a
+special case of the more general derivation to be given in Section 2 of Chapter 8
+for two-player zero-sum differential games.We now consider an important class of problems—the so-called affine-quadratic
+(or linear-quadratic) continuous-time optimal control problems—for which V(t,x)V(t, x)V(t,x)<br>
+is continuously differentiable, so that <a class="internal-link" data-href="Z_Basar/1_Main/Thm. 5.3.md" href="thm.-5.3.html" target="_self" rel="noopener nofollow">Thm. 5.3</a> applies. Toward that end, let<br>
+the system be described (as a continuous-time counterpart of <a data-href="(5.20a)" href="(5.20a).html" class="internal-link" target="_self" rel="noopener nofollow">(5.20a)</a>–<a data-href="(5.20b)" href="(5.20b).html" class="internal-link" target="_self" rel="noopener nofollow">(5.20b)</a>)
+by<br><a data-href="(5.30a)" href="(5.30a).html" class="internal-link" target="_self" rel="noopener nofollow">(5.30a)</a>
+and the cost functional to be minimized be given as<br><a data-href="(5.30b)" href="(5.30b).html" class="internal-link" target="_self" rel="noopener nofollow">(5.30b)</a>
+where and TTT is fixed. A(.),B(.),Q(.)A(.), B(.), Q(.)A(.),B(.),Q(.) and
+R(.)R(.)R(.) are matrices of appropriate dimensions and with continuous entries on
+[0,T][0, T][0,T]. The matrix QfQ_fQf​ is nonnegative-definite, and Q(.)Q(.)Q(.) and R(.)R(.)R(.) are continuous
+vector-valued functions, taking values in . Furthermore, we adopt the feed-
+back information pattern and take a typical control strategy as a continuous
+mapping . Denote the space of all such strategies by .
+Then the optimal control problem is to find a such that(5.31a)
+where(5.31b)
+Several methods exist to obtain the optimal strategy or the optimal control
+function . We shall derive the former by making use of Thm. 5.3.
+Simple arguments (see Anderson and Moore, 1989) lead to the conclusion that is quadratic in x0x_0x0​. Moreover, it can be shown that, if the system is
+positioned at an arbitrary time at an arbitrary point , the minimum
+cost-to-go, starting from this position, is quadratic in xxx. Therefore, we may
+assume existence of a continuously differentiable value function of the form<br><a data-href="(5.32)" href="(5.32).html" class="internal-link" target="_self" rel="noopener nofollow">(5.32)</a>GENERAL FORMULATION 239<br>that satisfies <a data-href="(5.25)" href="(5.25).html" class="internal-link" target="_self" rel="noopener nofollow">(5.25)</a>. Here S(.)S(.)S(.) is a symmetric () matrix with continuously
+differentiable entries, k(.)k(.)k(.) is a continuously differentiable nnn-vector and m(.)m(.)m(.) is
+a continuously differentiable function. If we can determine such S(.),k(.)S(.), k(.)S(.),k(.) and<br>
+m(.)m(.)m(.) so that <a data-href="(5.32)" href="(5.32).html" class="internal-link" target="_self" rel="noopener nofollow">(5.32)</a> satisfies the HJB equation <a data-href="(5.25)" href="(5.25).html" class="internal-link" target="_self" rel="noopener nofollow">(5.25)</a>, then <a data-href="Thm. 5.3" href="thm.-5.3.html" class="internal-link" target="_self" rel="noopener nofollow">Thm. 5.3</a> justifies the
+assumption of the existence of a value function quadratic in xxx. Substitution of<br>
+<a data-href="(5.32)" href="(5.32).html" class="internal-link" target="_self" rel="noopener nofollow">(5.32)</a> into <a data-href="(5.25)" href="(5.25).html" class="internal-link" target="_self" rel="noopener nofollow">(5.25)</a> leads to<br><a data-href="(5.33)" href="(5.33).html" class="internal-link" target="_self" rel="noopener nofollow">(5.33)</a>
+Carrying out the minimization on the RHS yields<br><a data-href="(5.34)" href="(5.34).html" class="internal-link" target="_self" rel="noopener nofollow">(5.34)</a><br>
+substitution of which into <a data-href="(5.33)" href="(5.33).html" class="internal-link" target="_self" rel="noopener nofollow">(5.33)</a> leads to an identity relation which is readily
+satisfied if<br><a data-href="(5.35a)" href="(5.35a).html" class="internal-link" target="_self" rel="noopener nofollow">(5.35a)</a><br><a data-href="(5.35b)" href="(5.35b).html" class="internal-link" target="_self" rel="noopener nofollow">(5.35b)</a><br><a data-href="(5.35c)" href="(5.35c).html" class="internal-link" target="_self" rel="noopener nofollow">(5.35c)</a>
+Thus we arrive at the following proposition.<br>The linear-quadratic optimal control problem <a data-href="(5.30a)" href="(5.30a).html" class="internal-link" target="_self" rel="noopener nofollow">(5.30a)</a>–<a data-href="(5.30b)" href="(5.30b).html" class="internal-link" target="_self" rel="noopener nofollow">(5.30b)</a><br>
+admits a unique optimum feedback controller which is given by <a data-href="(5.34)" href="(5.34).html" class="internal-link" target="_self" rel="noopener nofollow">(5.34)</a>, where<br>
+S(.)S(.)S(.), k(.)k(.)k(.) and m(.)m(.)m(.) uniquely satisfy <a data-href="(5.35a)" href="(5.35a).html" class="internal-link" target="_self" rel="noopener nofollow">(5.35a)</a>–<a data-href="(5.35c)" href="(5.35c).html" class="internal-link" target="_self" rel="noopener nofollow">(5.35c)</a>. The minimum value of the
+cost functional isProof. Except for existence of a unique , and that satisfy
+(5.35a)–(5.35c), the proof has been given prior to the statement of the propo-
+sition. Furthermore, if there exists a unique that satisfies (5.35a), which<br>
+is known as the <a data-href="matrix Riccati equation" href=".html" class="internal-link" target="_self" rel="noopener nofollow">matrix Riccati equation</a>, existence of unique solutions to the<br>
+remaining two differential equations <a data-href="(5.35a)" href="(5.35a).html" class="internal-link" target="_self" rel="noopener nofollow">(5.35a)</a>–<a data-href="(5.35c)" href="(5.35c).html" class="internal-link" target="_self" rel="noopener nofollow">(5.35c)</a> is assured since they are
+linear in kkk and mmm, respectively. What remains to be proven is that a<br>
+unique solution so <a data-href="(5.35a)" href="(5.35a).html" class="internal-link" target="_self" rel="noopener nofollow">(5.35a)</a> exists on [0,T][0, T][0,T]. This can be verified by
+other making use of the theory of differential equations (c.f. Reid, 1972) or uti-
+lizing the specific form of the optimal control problem with QfQ_fQf​ and taken
+to be nonnegative-definite (Anderson and Moore, 1989).<br>The solution <a data-href="(5.34)" href="(5.34).html" class="internal-link" target="_self" rel="noopener nofollow">(5.34)</a> can be obtained by other methods as well.
+Two of these are the minimum principle and the "completion of squares" method (see Brock-
+ett, 1970). Since the latter will be discussed in Chapter 6 in the context of
+affine-quadratic differential games, it will not be covered in this chapter.240 T. BAŞAR AND G. J. OLSDERThe nonnegative-definiteness requirements on QfQ_fQf​ and Q(.)Q(.)Q(.) may
+be relaxed, but then we have to assume from the outset the existence of a
+unique bounded solution to (5.35a) in order to ensure the existence of a unique
+minimizing control as given by (5.34). Otherwise (5.35a) might not admit
+a solution, more precisely its solution may exhibit finite escape (depending on
+the length of the time interval), implying in turn that the "optimal" cost might
+tend to . To exemplify this situation consider the scalar example:<br><a data-href="(5.36)" href="(5.36).html" class="internal-link" target="_self" rel="noopener nofollow">(5.36)</a><br>The Riccati equation <a data-href="(5.35a)" href="(5.35a).html" class="internal-link" target="_self" rel="noopener nofollow">(5.35a)</a>, for this example, becomes<br><a data-href="(5.37)" href="(5.37).html" class="internal-link" target="_self" rel="noopener nofollow">(5.37)</a>
+which admits the solution<br><a data-href="(5.38)" href="(5.38).html" class="internal-link" target="_self" rel="noopener nofollow">(5.38)</a>
+on the interval [T−1,T][T-1, T][T−1,T]. Hence, for , a continuously differentiable
+solution on the interval [0,T][0, T][0,T] to (5.37) does not exist. This non-existence of a
+solution to the matrix Riccati equation is directly related to the well-posedness
+of the optimal control problem (5.36), since it can readily be shown that, for
+, L(u)L(u)L(u) can be made arbitrarily small (negative) by choosing a proper u(t)u(t)u(t).
+In such a case we say that the Riccati equation has a conjugate point in [0,T][0, T][0,T]
+(Sagan (1969) and Brockett (1970)). This topic will be revisited in Chapter 6
+in the context of affine-quadratic zero-sum differential games.Meaningful continuous-time linear-quadratic optimal control problems where can also be formulated. Toward that end we take c(t)=0c(t) = 0c(t)=0, and the
+matrices A(t),B(t),Q(t)A(t), B(t), Q(t)A(t),B(t),Q(t) and R(t)R(t)R(t) to be independent of ttt. Then the problem
+becomessubject toConditions which ensure this problem to be well defined (with a finite mini-
+mum) are precisely those of the discrete-time analogue of this problem, i.e., the
+matrix pair (A,B)(A, B)(A,B) must be stabilizable and the matrix pair (A,D)(A, D)(A,D), where DDD is a
+matrix such that DTD=QD^T D = QDTD=Q, must be detectable; see for instance Kallath (1980)
+See Chapter 6, and particularly Lemma 6.4 and Remark 6.15 for further elaboration of
+this point.GENERAL FORMULATION 241or Davis (1977) for discussions on these notions in continuous time. The pair
+(A,B)(A, B)(A,B) is stabilizable if an matrix FFF exists such that is stable,
+i.e., all its eigenvalues lie in the open left half of the complex plane (note the
+difference of this definition from the one for its discrete-time coun-
+terpart). Furthermore, the pair (A,D)(A, D)(A,D) is detectable if its "dual pair" (AT,DT)(A^T, D^T)(AT,DT)
+is stabilizable. The following proposition, which can be found in any textbook
+on linear control systems, summarizes the main result.Assume that the pair (A,B)(A, B)(A,B) is stabilizable and the pair (A,Q)(A, Q)(A,Q)
+is detectable. Then, there exists an nonnegative definite matrix SSS such
+that
+(i) for fixed ttt, and for every , (uniformly in t&lt;Tt &lt; Tt&lt;T)
+as , where ST(t)S^T(t)ST(t) is the unique nonnegative definite solution to<br>
+<a data-href="(5.35a)" href="(5.35a).html" class="internal-link" target="_self" rel="noopener nofollow">(5.35a)</a>, parameterized in TTT;
+(ii) SSS is the unique solution of the algebraic Riccati equation (ARE)in the class of nonnegative definite matrices;
+(iii) the closed-loop matrix is stable, i.e., all its eigenvalues lie
+in the open left half of the complex plane;
+(iv) the minimum value of the cost functional is ;
+(v) the stationary optimal control law isUnder the stronger condition that (A,D)(A, D)(A,D) is observable (a sufficient condition
+for which is Q&gt;0Q &gt; 0Q&gt;0), the solution to the ARE is positive definite.Continuous-time systems
+In this subsection our starting point will be the HJB equation (5.25) under
+the additional assumption that VVV is twice continuously differentiable, and we
+shall convert it into a series of pointwise optimization problems, indexed by the
+parameter xxx. This new term is in some cases more convenient to work with and
+it is closely related to the so-called minimum principle, as also discussed here.
+Toward this end we first introduce the function<br><a data-href="(5.39)" href="(5.39).html" class="internal-link" target="_self" rel="noopener nofollow">(5.39)</a>
+(5.39)242 T. BAŞAR AND G. J. OLSDER
+in terms of which equation (5.25) can be written as(5.40)
+Being consistent with our earlier convention, the minimizing uuu will be denoted
+by u∗u^*u∗. Then(5.41)
+Since this is an identity in xxx, its partial derivative with respect to xxx is also zero.
+This leads to, by also interchanging the orders of second partial derivatives
+(which is allowed if VVV is twice continuously differentiable):(5.42)
+If there are no constraints on uuu, then for u=u∗u = u^*u=u∗ according to
+equation (5.40). If there are constraints on uuu, and u∗u^*u∗ is not an interior point,
+then it can be shown that are orthogonal; for specific problems we may have . In
+view of this, equation (5.42) becomes
+HEREERERERE(5.43)
+By introducing the so-called costate vector, , where x∗x^*x∗
+denotes the state trajectory corresponding to u∗u^*u∗, (5.43) can be re-written as(5.44)
+where is defined by(5.45)
+The final time TTT is determined by the scalar relation l(T,x)=0l(T, x) = 0l(T,x)=0 and hence can
+be regarded as a function of the state: T(x)T(x)T(x). The boundary condition for p(t)p(t)p(t)
+is determined from(5.46)
+In conclusion, we have arrived at the following necessary condition for the op-
+timal control : under the assumption that the value function V(t,x)V(t, x)V(t,x) is
+twice continuously differentiable, the optimal control and correspondingGENERAL FORMULATION 243
+trajectory x∗(t)x^*(t)x∗(t) must satisfy the following so-called canonical equations(5.47)
+In the derivation of (5.47), the controls have been assumed to be functions
+of time and state, i.e., . If, instead, one starts with the class
+of control functions which depend only on time, i.e., , the set of
+necessary conditions (5.47) can be derived in quite a different way (by using
+perturbation functions, which is a standard procedure in the classical calculus
+of variations), and under milder assumptions. Following such a derivation, one
+obtains the following result which can, for instance, be found in Pontryagin,
+et al. (1962) and which is referred to as the minimum principle.
+Theorem 5.4 Consider the optimal control problem defined by (5.23) and un-
+der the OL information structure. If the functions f,g,qf, g, qf,g,q and lll are continuously
+differentiable in xxx and continuous in ttt and uuu, then relations (5.47) provide a set
+of necessary conditions for the optimal control and the corresponding optimal
+trajectory to satisfy.A particular class of optimal control problems which are not cov-
+ered by Thm 5.4 are those with a fixed terminal condition, i.e., with the terminal
+time TTT and the terminal state x(T)x(T)x(T) prescribed, since the function lll is not differ-
+entiable in this case. However, the necessary conditions for the optimal control
+are still given by (5.47), with the exception that the condition on p(T)p(T)p(T) is absent
+and instead the terminal state constraint x(T)=xfx(T) = x_fx(T)=xf​ replaces it. We also note,
+in passing, that in the theory of zero-sum differential games, reasonable prob-
+lems with state space dimension will (almost) never be formulated with a
+fixed prescribed terminal state, since it is not possible to enforce this end-point
+constraint on both players if they have totally conflicting objectives.
+The following example now illustrates how Thm. 5.4 can be employed to
+obtain the solution of an optimal control problem for which the value function
+VVV is not continuously differentiable. It also exhibits some features which are
+frequently met in the theory of differential games, and introduces some termi-
+nology which will be useful later in Chapter 8.244 T. BAŞAR AND G. J. OLSDER
+Example 5.2 Consider an open-loop control problem with systems dynamics
+described by(5.48)
+where the scalar control satisfies the constraint for all . The
+objective is to steer the system from an arbitrary but known initial point in the
+(x1,x2)(x_1, x_2)(x1​,x2​) plane to the line x1=x2x_1 = x_2x1​=x2​ in minimum time. Hence, the cost function
+can be written aswhere TTT is defined as the first instant for which the functionl(t,x1(t),x2(t))=x1(t)−x2(t)l(t, x_1(t), x_2(t)) = x_1(t) - x_2(t)l(t,x1​(t),x2​(t))=x1​(t)−x2​(t)becomes zero. In the derivation below, we shall restrict ourselves to initial
+points satisfying x1−x2&gt;0x_1 - x_2 &gt; 0x1​−x2​&gt;0. Initial points with the property x1−x2&lt;0x_1 - x_2 &lt; 0x1​−x2​&lt;0
+can be dealt with analogously. Now, application of relations (5.47) yields (with
+):(5.49)
+since the costate variable p2(t)p_2(t)p2​(t) here is also known as the switching function,
+where it determines the sign of u∗(t)u^*(t)u∗(t). For points on the line x1=x2x_1 = x_2x1​=x2​, which can be
+reached by optimal trajectories, obviously T=0T = 0T=0 and therefore the costate vector will be orthogonal to the line x1=x2x_1 = x_2x1​=x2​ and point in the
+direction "south-east". Since the magnitude of the costate vector is irrelevant
+in this problem, we take(5.50)
+which leads to(5.51)
+assuming, of course, that T&gt;1T &gt; 1T&gt;1. Now, by integrating (5.48) backwards in time
+from an arbitrary terminal condition on the line x1=x2x_1 = x_2x1​=x2​ (which we take as
+x1(T)=x2(T)=ax_1(T) = x_2(T) = ax1​(T)=x2​(T)=a where aaa is a parameter), and by replacing u(t)u(t)u(t) with u∗(t)u^*(t)u∗(t)
+as given by (5.51), we obtainx2(t)=a+(T−t).x_2(t) = a + (T-t).x2​(t)=a+(T−t).The line x1=x2x_1 = x_2x1​=x2​ for T−t=1T-t=1T−t=1 we get x1=a+12+a,x2=a+1x_1=a+1/2+a, x_2=a+1x1​=a+21​+a,x2​=a+1. No.]]></description><link>chapter-5.html</link><guid isPermaLink="false">Z_Basar/1_Main/Chapter 5.md</guid><pubDate>Fri, 17 Oct 2025 05:12:25 GMT</pubDate></item><item><title><![CDATA[(5.39)]]></title><link>(5.39).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.39).md</guid><pubDate>Thu, 16 Oct 2025 06:09:19 GMT</pubDate></item><item><title><![CDATA[(5.38)]]></title><link>(5.38).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.38).md</guid><pubDate>Thu, 16 Oct 2025 05:58:39 GMT</pubDate></item><item><title><![CDATA[(5.37)]]></title><link>(5.37).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.37).md</guid><pubDate>Thu, 16 Oct 2025 05:58:31 GMT</pubDate></item><item><title><![CDATA[(5.36)]]></title><description><![CDATA[(5.36)]]></description><link>(5.36).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.36).md</guid><pubDate>Thu, 16 Oct 2025 05:58:13 GMT</pubDate></item><item><title><![CDATA[(5.30b)]]></title><link>(5.30b).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.30b).md</guid><pubDate>Thu, 16 Oct 2025 05:53:22 GMT</pubDate></item><item><title><![CDATA[(5.30a)]]></title><link>(5.30a).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.30a).md</guid><pubDate>Thu, 16 Oct 2025 05:53:14 GMT</pubDate></item><item><title><![CDATA[(5.35c)]]></title><link>(5.35c).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.35c).md</guid><pubDate>Thu, 16 Oct 2025 05:47:10 GMT</pubDate></item><item><title><![CDATA[(5.35b)]]></title><link>(5.35b).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.35b).md</guid><pubDate>Thu, 16 Oct 2025 05:47:01 GMT</pubDate></item><item><title><![CDATA[(5.35a)]]></title><link>(5.35a).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.35a).md</guid><pubDate>Thu, 16 Oct 2025 05:46:52 GMT</pubDate></item><item><title><![CDATA[(5.33)]]></title><link>(5.33).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.33).md</guid><pubDate>Thu, 16 Oct 2025 05:35:34 GMT</pubDate></item><item><title><![CDATA[(5.32)]]></title><link>(5.32).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.32).md</guid><pubDate>Thu, 16 Oct 2025 05:33:03 GMT</pubDate></item><item><title><![CDATA[Thm]]></title><link>thm.html</link><guid isPermaLink="false">Z_Basar/1_Main/Thm.md</guid><pubDate>Thu, 16 Oct 2025 05:25:31 GMT</pubDate></item><item><title><![CDATA[Thm. 5.3]]></title><description><![CDATA[If a continuously differentiable function V(t,x)V(t, x)V(t,x) can be found that
+satisfies the HJB equation <a data-href="(5.25)" href="(5.25).html" class="internal-link" target="_self" rel="noopener nofollow">(5.25)</a> subject to the boundary condition <a data-href="(5.24b)" href="(5.24b).html" class="internal-link" target="_self" rel="noopener nofollow">(5.24b)</a>, then
+it generates the optimal strategy through the static (pointwise) minimization<br>
+problem defined by the RHS of <a data-href="(5.25)" href="(5.25).html" class="internal-link" target="_self" rel="noopener nofollow">(5.25)</a>.
+Proof. If we are given two strategies, (the optimal one) and (an arbitrary one), with the corresponding terminating trajectories x∗x^*x∗ and xxx,<br>
+and terminal times T∗T^*T∗ and TTT, respectively, then <a data-href="(5.25)" href="(5.25).html" class="internal-link" target="_self" rel="noopener nofollow">(5.25)</a> reads(5.26a)(5.26b)
+where and have been replaced by the corresponding controls u∗u^*u∗ and uuu,
+respectively. Integrating (5.26a) from 000 to TTT and (5.26b) from 000 to T∗T^*T∗, we
+obtain(5.27)(5.28)
+Elimination of V(0,x0)V(0, x_0)V(0,x0​) yields(5.29)
+from which it readily follows that u∗u^*u∗ is the optimal control, and therefore is
+the optimal strategy.238 T. BAŞAR AND G. J. OLSDER]]></description><link>thm.-5.3.html</link><guid isPermaLink="false">Z_Basar/1_Main/Thm. 5.3.md</guid><pubDate>Thu, 16 Oct 2025 05:25:20 GMT</pubDate></item><item><title><![CDATA[(5.23)]]></title><link>(5.23).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.23).md</guid><pubDate>Thu, 16 Oct 2025 05:06:12 GMT</pubDate></item><item><title><![CDATA[(5.34)]]></title><link>(5.34).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.34).md</guid><pubDate>Thu, 16 Oct 2025 05:04:48 GMT</pubDate></item><item><title><![CDATA[(5.25)]]></title><link>(5.25).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.25).md</guid><pubDate>Thu, 16 Oct 2025 04:58:40 GMT</pubDate></item><item><title><![CDATA[(5.24b)]]></title><link>(5.24b).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.24b).md</guid><pubDate>Thu, 16 Oct 2025 04:51:11 GMT</pubDate></item><item><title><![CDATA[(5.24a)]]></title><link>(5.24a).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.24a).md</guid><pubDate>Thu, 16 Oct 2025 04:50:54 GMT</pubDate></item><item><title><![CDATA[(5.22)]]></title><link>(5.22).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.22).md</guid><pubDate>Thu, 16 Oct 2025 04:34:02 GMT</pubDate></item><item><title><![CDATA[(5.21b)]]></title><link>(5.21b).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.21b).md</guid><pubDate>Thu, 16 Oct 2025 04:33:39 GMT</pubDate></item><item><title><![CDATA[(5.20b)]]></title><link>(5.20b).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.20b).md</guid><pubDate>Thu, 16 Oct 2025 04:32:05 GMT</pubDate></item><item><title><![CDATA[(5.19)]]></title><link>(5.19).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.19).md</guid><pubDate>Thu, 16 Oct 2025 04:31:47 GMT</pubDate></item><item><title><![CDATA[(5.20a)]]></title><description><![CDATA[x{k+1}=Akxk+Bkuk+ck,x_{k+1} = A_k x_k + B_k u_k + c_k,x{k+1}​=Ak​xk​+Bk​uk​+ck​,]]></description><link>(5.20a).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.20a).md</guid><pubDate>Thu, 16 Oct 2025 04:31:19 GMT</pubDate></item><item><title><![CDATA[(5.9b)]]></title><link>(5.9b).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.9b).md</guid><pubDate>Thu, 16 Oct 2025 02:35:00 GMT</pubDate></item><item><title><![CDATA[(5.9a)]]></title><link>(5.9a).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.9a).md</guid><pubDate>Thu, 16 Oct 2025 02:34:43 GMT</pubDate></item><item><title><![CDATA[(5.8)]]></title><link>(5.8).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.8).md</guid><pubDate>Thu, 16 Oct 2025 02:34:19 GMT</pubDate></item><item><title><![CDATA[(8.5.18)]]></title><link>(8.5.18).html</link><guid isPermaLink="false">Z_Basar/1_Main/(8.5.18).md</guid><pubDate>Thu, 16 Oct 2025 02:34:03 GMT</pubDate></item><item><title><![CDATA[(5.3)]]></title><link>(5.3).html</link><guid isPermaLink="false">Z_Basar/1_Main/(5.3).md</guid><pubDate>Wed, 15 Oct 2025 08:54:09 GMT</pubDate></item><item><title><![CDATA[Def. 3.10]]></title><description><![CDATA[Definition 3.10 An extensive form of an NNN-person nonzero-sum finite game
+without chance moves is a tree structure with
+(i) a specific vertex indicating the starting point of the game,*
+98
+T. BAŞAR AND G. J. OLSDER(ii) NNN cost functions, each one assigning a real number to each terminal vertex of the tree, where the iiith cost function determines the loss to be incurred to PiP_iPi​,(iii) a partition of the nodes of the tree into NNN player sets,(iv) a subpartition of each player set into information sets , such that the same number of branches emanates from every node belonging to the same information set and no node follows another node in the same information set.
+<img src="main/attachments/def.-3.10-2025-10-15_17-14-50.png" target="_self">
+Two typical nonzero-sum finite games in extensive form are depicted in Fig. 3.1. The first one represents a 3-player single-act nonzero-sum finite game in extensive form in which the information sets of the players are such that both and have access to the action of . The second extensive form of Fig. 3.1, on the other hand, represents a 2-player multi-act nonzero-sum finite game in which acts twice and only once. In both extensive forms, the set of alternatives for each player is the same at all information sets and it consists of two elements. The outcome corresponding to each possible path is denoted by an ordered NNN-tuple of numbers , where NNN stands for the number of players and aia^iai stands for the corresponding cost to .]]></description><link>def.-3.10.html</link><guid isPermaLink="false">Z_Basar/1_Main/Def. 3.10.md</guid><pubDate>Wed, 15 Oct 2025 08:17:15 GMT</pubDate><enclosure url="." length="0" type="false"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;.&quot;&gt;&lt;/figure&gt;</content:encoded></item></channel></rss>
